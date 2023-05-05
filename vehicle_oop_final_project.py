@@ -1,7 +1,7 @@
 """
 Name: vehicle_oop_final.py
 Author: Rebecca Burwinkel
-Date: May 2 2023
+Date: May 5 2023
 Purpose: FINAL: Programming for a vehicle using OOP
 """
 
@@ -77,27 +77,34 @@ class Ship():
                 # Speed up
                 if adjust_speed == "p":
                     if ship_speed == 20:
-                        print(f"You are going {ship_speed} and cannot go any faster.")
+                        print(f"You are going {ship_speed} and cannot go any faster.\n")
                     else:
                         ship_speed = ship_speed + 2
-                        print(f"You have sped up to {ship_speed} knots.")
+                        print(f"You have sped up to {ship_speed} knots.\n")
                     
                 # Slow down
                 elif adjust_speed == "s":
                     if ship_speed == 0:
-                        print("You are stopped and cannot go slower.")
+                        print("You are stopped and cannot go slower.\n")
                     else:
                         ship_speed = ship_speed - 2
-                        print(f"You are slowed to {ship_speed} knots.")
+                        print(f"You are slowed to {ship_speed} knots.\n")
 
                 # Keep pace
                 elif adjust_speed == "m":
-                    print(f"You hold your speed of {ship_speed} knots.")
+                    print(f"You hold your speed of {ship_speed} knots.\n")
 
-                # Stop
+                # Stop (anchor)
                 elif adjust_speed == "d":
                     ship_speed == 0
-                    print("You have stopped the ship.")
+                    print("You have stopped the ship. Are you wanting to sunbathe or what?")
+                    raise_anchor = input("Do you want to raise the anchor? Y/N ")
+                    raise_anchor = raise_anchor.lower()
+                    if raise_anchor == "y":
+                        print("You may continue on your journey.")
+                    else:
+                        print("Enjoy the sun!")
+                        sys.exit()
 
                 # Bogus
                 else:
@@ -128,6 +135,7 @@ class Ship():
                     print(f"There is {self.crew_size} crew member left. They are watching you, rather nervously so.")                
                 elif self.crew_size == 0:
                     print(f"You have {self.crew_size} crew members left. Return to port, you can't do this alone.")
+                    sys.exit()
                 else:
                     print(f"There are {self.crew_size} crew members left. Hopefully they learn from this example!")
 
@@ -168,9 +176,9 @@ class Ship():
                 # [R]un away (taunt as coward)
                 elif reaction_to_enemy == "r":
                     sleep(1.5)
-                    print("\nAll of the seas knows you are a coward! Have you thought of a new line of work?")
+                    print("\nAll of the seas will know you are a coward! Have you thought of a new line of work?")
                     # End program
-                    break
+                    sys.exit()
 
             # Go to port (E[X]it)
             elif action_choice == "x":
